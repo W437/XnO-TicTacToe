@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public Button uiModeButton;
     public TextMeshProUGUI turnIndicatorText;
     public TextMeshProUGUI timerText;
-    public TextMeshProUGUI logoText;
+    public Image gameLogo;
+    public Sprite darkLogo, lightLogo;
     public AudioSource clickSFX;
     public AudioSource popSFX;
     public AudioSource resetSFX;
@@ -24,7 +25,6 @@ public class GameManager : MonoBehaviour
     public ParticleSystem confettiParticleSystem;
     public Image waelLogo;
     public Image bgImage;
-    public Image gameLogo;
     public Camera mainCamera;
     private bool isGameActive;
     private string currentPlayer;
@@ -422,7 +422,7 @@ public class GameManager : MonoBehaviour
         Color targetTimerTextColor = isDarkMode ? lightModeTimerTextColor : darkModeTimerTextColor;
         Color targetBGColor = isDarkMode ? lightModeBGColor : darkModeBGColor;
         Color targetLogoColor = isDarkMode ? lightModeLogoColor : darkModeLogoColor;
-        Color targetGameLogoColor = isDarkMode ? new Color(1f, 1f, 1f, 1f) : new Color(0f, 0f, 0f, 0.6f);
+        //Color targetGameLogoColor = isDarkMode ? new Color(1f, 1f, 1f, 1f) : new Color(0f, 0f, 0f, 0.6f);
 
         LeanTween.value(gameObject, mainCamera.backgroundColor, targetCameraColor, 0.15f)
                  .setOnUpdate((Color color) => { mainCamera.backgroundColor = color; });
@@ -465,9 +465,6 @@ public class GameManager : MonoBehaviour
                  .setEaseOutQuad()
                  .setLoopPingPong(1);
 
-        LeanTween.value(gameLogo.gameObject, gameLogo.color, targetGameLogoColor, 0.15f)
-                 .setOnUpdate((Color color) => { gameLogo.color = color; });
-
         /*        LeanTween.scale(gameLogo.gameObject, Vector3.one * 1.05f, 0.1f)
                          .setEaseOutQuad()
                          .setLoopPingPong(1);*/
@@ -476,11 +473,11 @@ public class GameManager : MonoBehaviour
 
         if (isDarkMode)
         {
-            logoText.text = "bit<color=#3F3F3F>-<color=#2EAAD2>tac<color=#3F3F3F>-<color=#D22E60>toe";
+            gameLogo.sprite = darkLogo;
         }
         else
         {
-            logoText.text = "bit<color=#9D9D9D>-<color=#2EAAD2>tac<color=#9D9D9D>-<color=#D22E60>toe";
+            gameLogo.sprite = lightLogo;           
         }
     }
 
