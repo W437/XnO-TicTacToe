@@ -1,4 +1,5 @@
-juicy x n' o
+juicy x n' o twist (play w/ sound!)
+an experiment to turn a classic & simple game to an enjoyable and satisfying experience!
 
-https://github.com/user-attachments/assets/60d6f229-3537-4f2e-9d47-971f94a0333d
+https://github.com/user-attachments/assets/2a7df0ad-29a3-427a-a4b4-225ac711a67c
 
